@@ -3,29 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6132F020260F8538003533EF /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 6132F01F260F8538003533EF /* Reusable */; };
-		61E1318D260A93F500FAFC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E1318C260A93F500FAFC82 /* AppDelegate.swift */; };
-		61E1318F260A93F500FAFC82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E1318E260A93F500FAFC82 /* SceneDelegate.swift */; };
+		615409A2265E78E800ABB8FB /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154099D265E78E800ABB8FB /* CardCell.swift */; };
+		615409A3265E78E800ABB8FB /* CardBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6154099E265E78E800ABB8FB /* CardBackView.xib */; };
+		615409A4265E78E800ABB8FB /* CardFrontView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6154099F265E78E800ABB8FB /* CardFrontView.xib */; };
+		615409A5265E78E800ABB8FB /* CardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409A0265E78E800ABB8FB /* CardFrontView.swift */; };
+		615409A6265E78E800ABB8FB /* CardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409A1265E78E800ABB8FB /* CardBackView.swift */; };
+		615409AE265E790000ABB8FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 615409A9265E790000ABB8FB /* Assets.xcassets */; };
+		615409B0265E790000ABB8FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AC265E790000ABB8FB /* AppDelegate.swift */; };
+		615409B1265E790000ABB8FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AD265E790000ABB8FB /* SceneDelegate.swift */; };
 		61E13191260A93F500FAFC82 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E13190260A93F500FAFC82 /* DeckViewController.swift */; };
 		61E13194260A93F500FAFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E13192260A93F500FAFC82 /* Main.storyboard */; };
-		61E13196260A93F900FAFC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61E13195260A93F900FAFC82 /* Assets.xcassets */; };
-		61E13199260A93F900FAFC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E13197260A93F900FAFC82 /* LaunchScreen.storyboard */; };
 		61E131A3260A957F00FAFC82 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E131A2260A957F00FAFC82 /* Card.swift */; };
 		61E131A8260BB27D00FAFC82 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E131A7260BB27D00FAFC82 /* CardDeck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6154099D265E78E800ABB8FB /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		6154099E265E78E800ABB8FB /* CardBackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardBackView.xib; sourceTree = "<group>"; };
+		6154099F265E78E800ABB8FB /* CardFrontView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardFrontView.xib; sourceTree = "<group>"; };
+		615409A0265E78E800ABB8FB /* CardFrontView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFrontView.swift; sourceTree = "<group>"; };
+		615409A1265E78E800ABB8FB /* CardBackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBackView.swift; sourceTree = "<group>"; };
+		615409A9265E790000ABB8FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		615409AB265E790000ABB8FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		615409AC265E790000ABB8FB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		615409AD265E790000ABB8FB /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		61E13189260A93F500FAFC82 /* Cardi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardi.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		61E1318C260A93F500FAFC82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		61E1318E260A93F500FAFC82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		61E13190260A93F500FAFC82 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
 		61E13193260A93F500FAFC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		61E13195260A93F900FAFC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		61E13198260A93F900FAFC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		61E1319A260A93F900FAFC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61E131A2260A957F00FAFC82 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		61E131A7260BB27D00FAFC82 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
@@ -36,13 +44,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6132F020260F8538003533EF /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6154099C265E78E800ABB8FB /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				6154099D265E78E800ABB8FB /* CardCell.swift */,
+				6154099E265E78E800ABB8FB /* CardBackView.xib */,
+				6154099F265E78E800ABB8FB /* CardFrontView.xib */,
+				615409A0265E78E800ABB8FB /* CardFrontView.swift */,
+				615409A1265E78E800ABB8FB /* CardBackView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		615409A8265E790000ABB8FB /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				615409A9265E790000ABB8FB /* Assets.xcassets */,
+				615409AA265E790000ABB8FB /* LaunchScreen.storyboard */,
+				615409AC265E790000ABB8FB /* AppDelegate.swift */,
+				615409AD265E790000ABB8FB /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		61E13180260A93F500FAFC82 = {
 			isa = PBXGroup;
 			children = (
@@ -62,13 +92,11 @@
 		61E1318B260A93F500FAFC82 /* Cardi */ = {
 			isa = PBXGroup;
 			children = (
+				615409A8265E790000ABB8FB /* Support */,
+				6154099C265E78E800ABB8FB /* Custom Views */,
 				61E131A1260A957100FAFC82 /* Model */,
-				61E1318C260A93F500FAFC82 /* AppDelegate.swift */,
-				61E1318E260A93F500FAFC82 /* SceneDelegate.swift */,
 				61E13190260A93F500FAFC82 /* DeckViewController.swift */,
 				61E13192260A93F500FAFC82 /* Main.storyboard */,
-				61E13195260A93F900FAFC82 /* Assets.xcassets */,
-				61E13197260A93F900FAFC82 /* LaunchScreen.storyboard */,
 				61E1319A260A93F900FAFC82 /* Info.plist */,
 			);
 			path = Cardi;
@@ -100,7 +128,6 @@
 			);
 			name = Cardi;
 			packageProductDependencies = (
-				6132F01F260F8538003533EF /* Reusable */,
 			);
 			productName = Cardi;
 			productReference = 61E13189260A93F500FAFC82 /* Cardi.app */;
@@ -130,7 +157,6 @@
 			);
 			mainGroup = 61E13180260A93F500FAFC82;
 			packageReferences = (
-				6132F01E260F8538003533EF /* XCRemoteSwiftPackageReference "Reusable" */,
 			);
 			productRefGroup = 61E1318A260A93F500FAFC82 /* Products */;
 			projectDirPath = "";
@@ -146,9 +172,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E13199260A93F900FAFC82 /* LaunchScreen.storyboard in Resources */,
-				61E13196260A93F900FAFC82 /* Assets.xcassets in Resources */,
 				61E13194260A93F500FAFC82 /* Main.storyboard in Resources */,
+				615409A4265E78E800ABB8FB /* CardFrontView.xib in Resources */,
+				615409AE265E790000ABB8FB /* Assets.xcassets in Resources */,
+				615409A3265E78E800ABB8FB /* CardBackView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,29 +188,32 @@
 			files = (
 				61E13191260A93F500FAFC82 /* DeckViewController.swift in Sources */,
 				61E131A8260BB27D00FAFC82 /* CardDeck.swift in Sources */,
-				61E1318D260A93F500FAFC82 /* AppDelegate.swift in Sources */,
-				61E1318F260A93F500FAFC82 /* SceneDelegate.swift in Sources */,
+				615409B0265E790000ABB8FB /* AppDelegate.swift in Sources */,
+				615409A6265E78E800ABB8FB /* CardBackView.swift in Sources */,
+				615409B1265E790000ABB8FB /* SceneDelegate.swift in Sources */,
+				615409A5265E78E800ABB8FB /* CardFrontView.swift in Sources */,
 				61E131A3260A957F00FAFC82 /* Card.swift in Sources */,
+				615409A2265E78E800ABB8FB /* CardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		615409AA265E790000ABB8FB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				615409AB265E790000ABB8FB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		61E13192260A93F500FAFC82 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				61E13193260A93F500FAFC82 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		61E13197260A93F900FAFC82 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				61E13198260A93F900FAFC82 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -365,25 +395,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		6132F01E260F8538003533EF /* XCRemoteSwiftPackageReference "Reusable" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AliSoftware/Reusable";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6132F01F260F8538003533EF /* Reusable */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6132F01E260F8538003533EF /* XCRemoteSwiftPackageReference "Reusable" */;
-			productName = Reusable;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 61E13181260A93F500FAFC82 /* Project object */;
 }
