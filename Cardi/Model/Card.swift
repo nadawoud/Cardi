@@ -7,10 +7,26 @@
 
 import Foundation
 
-struct Card {
+class Card {
     var title: String
     var description: String?
     var backTitle: String?
     var backDescription: String?
     var emoji: String?
+    var correctlyAnswered: Bool?
+    
+    init(title: String,
+         description: String? = nil,
+         backTitle: String? = nil,
+         backDescription: String? = nil,
+         emoji: String? = nil,
+         correctlyAnswered: Bool? = nil) {
+        
+      self.title = title
+      self.description = description
+      self.backTitle = backTitle
+      self.backDescription = backDescription
+      self.emoji = emoji
+      self.correctlyAnswered = correctlyAnswered
+    }
 }
