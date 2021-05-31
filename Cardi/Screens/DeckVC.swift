@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DeckViewController: UIViewController {
+class DeckVC: UIViewController {
     
     private var deck = CardDeck(
         title: "Essen",
@@ -47,7 +47,7 @@ class DeckViewController: UIViewController {
     
 }
 
-extension DeckViewController: UICollectionViewDataSource {
+extension DeckVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return deck.cards.count
     }

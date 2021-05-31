@@ -16,7 +16,7 @@
 		615409B0265E790000ABB8FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AC265E790000ABB8FB /* AppDelegate.swift */; };
 		615409B1265E790000ABB8FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AD265E790000ABB8FB /* SceneDelegate.swift */; };
 		616F1917265EA776008530EB /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 616F1916265EA776008530EB /* Reusable */; };
-		61E13191260A93F500FAFC82 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E13190260A93F500FAFC82 /* DeckViewController.swift */; };
+		61E13191260A93F500FAFC82 /* DeckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E13190260A93F500FAFC82 /* DeckVC.swift */; };
 		61E13194260A93F500FAFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E13192260A93F500FAFC82 /* Main.storyboard */; };
 		61E131A3260A957F00FAFC82 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E131A2260A957F00FAFC82 /* Card.swift */; };
 		61E131A8260BB27D00FAFC82 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E131A7260BB27D00FAFC82 /* CardDeck.swift */; };
@@ -33,7 +33,7 @@
 		615409AC265E790000ABB8FB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		615409AD265E790000ABB8FB /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		61E13189260A93F500FAFC82 /* Cardi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardi.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		61E13190260A93F500FAFC82 /* DeckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckViewController.swift; sourceTree = "<group>"; };
+		61E13190260A93F500FAFC82 /* DeckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckVC.swift; sourceTree = "<group>"; };
 		61E13193260A93F500FAFC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		61E1319A260A93F900FAFC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61E131A2260A957F00FAFC82 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		61ABBD412665473C00A20F11 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				61E13190260A93F500FAFC82 /* DeckViewController.swift */,
+				61E13190260A93F500FAFC82 /* DeckVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -198,7 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61E13191260A93F500FAFC82 /* DeckViewController.swift in Sources */,
+				61E13191260A93F500FAFC82 /* DeckVC.swift in Sources */,
 				61E131A8260BB27D00FAFC82 /* CardDeck.swift in Sources */,
 				615409B0265E790000ABB8FB /* AppDelegate.swift in Sources */,
 				615409A6265E78E800ABB8FB /* CardBackView.swift in Sources */,
