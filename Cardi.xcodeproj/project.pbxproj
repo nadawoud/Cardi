@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		615409AE265E790000ABB8FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 615409A9265E790000ABB8FB /* Assets.xcassets */; };
 		615409B0265E790000ABB8FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AC265E790000ABB8FB /* AppDelegate.swift */; };
 		615409B1265E790000ABB8FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AD265E790000ABB8FB /* SceneDelegate.swift */; };
+		616F1917265EA776008530EB /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 616F1916265EA776008530EB /* Reusable */; };
 		61E13191260A93F500FAFC82 /* DeckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E13190260A93F500FAFC82 /* DeckViewController.swift */; };
 		61E13194260A93F500FAFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E13192260A93F500FAFC82 /* Main.storyboard */; };
 		61E131A3260A957F00FAFC82 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E131A2260A957F00FAFC82 /* Card.swift */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				616F1917265EA776008530EB /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +130,7 @@
 			);
 			name = Cardi;
 			packageProductDependencies = (
+				616F1916265EA776008530EB /* Reusable */,
 			);
 			productName = Cardi;
 			productReference = 61E13189260A93F500FAFC82 /* Cardi.app */;
@@ -157,6 +160,7 @@
 			);
 			mainGroup = 61E13180260A93F500FAFC82;
 			packageReferences = (
+				616F1915265EA776008530EB /* XCRemoteSwiftPackageReference "Reusable" */,
 			);
 			productRefGroup = 61E1318A260A93F500FAFC82 /* Products */;
 			projectDirPath = "";
@@ -395,6 +399,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		616F1915265EA776008530EB /* XCRemoteSwiftPackageReference "Reusable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/Reusable";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		616F1916265EA776008530EB /* Reusable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 616F1915265EA776008530EB /* XCRemoteSwiftPackageReference "Reusable" */;
+			productName = Reusable;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 61E13181260A93F500FAFC82 /* Project object */;
 }
