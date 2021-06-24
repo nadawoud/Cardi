@@ -46,6 +46,11 @@ class DeckVC: UIViewController {
         }()
     }
     
+    
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
+    
 }
 
 extension DeckVC: UICollectionViewDataSource {
