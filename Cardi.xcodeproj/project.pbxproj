@@ -16,7 +16,9 @@
 		615409B0265E790000ABB8FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AC265E790000ABB8FB /* AppDelegate.swift */; };
 		615409B1265E790000ABB8FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615409AD265E790000ABB8FB /* SceneDelegate.swift */; };
 		616F1917265EA776008530EB /* Reusable in Frameworks */ = {isa = PBXBuildFile; productRef = 616F1916265EA776008530EB /* Reusable */; };
+		6186FE0E268155E50036C2C5 /* NewDeckVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6186FE0D268155E50036C2C5 /* NewDeckVC.storyboard */; };
 		619329F42665B3FE00595D12 /* DeckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619329F32665B3FE00595D12 /* DeckCell.swift */; };
+		61B89683267A74FA00FCE386 /* NewDeckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61B89682267A74FA00FCE386 /* NewDeckVC.swift */; };
 		61E13191260A93F500FAFC82 /* DeckVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E13190260A93F500FAFC82 /* DeckVC.swift */; };
 		61E13194260A93F500FAFC82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61E13192260A93F500FAFC82 /* Main.storyboard */; };
 		61E131A3260A957F00FAFC82 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E131A2260A957F00FAFC82 /* Card.swift */; };
@@ -33,7 +35,9 @@
 		615409AB265E790000ABB8FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		615409AC265E790000ABB8FB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		615409AD265E790000ABB8FB /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		6186FE0D268155E50036C2C5 /* NewDeckVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewDeckVC.storyboard; sourceTree = "<group>"; };
 		619329F32665B3FE00595D12 /* DeckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCell.swift; sourceTree = "<group>"; };
+		61B89682267A74FA00FCE386 /* NewDeckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeckVC.swift; sourceTree = "<group>"; };
 		61E13189260A93F500FAFC82 /* Cardi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cardi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61E13190260A93F500FAFC82 /* DeckVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckVC.swift; sourceTree = "<group>"; };
 		61E13193260A93F500FAFC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				61E13190260A93F500FAFC82 /* DeckVC.swift */,
+				61B89682267A74FA00FCE386 /* NewDeckVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 				6154099C265E78E800ABB8FB /* Custom Views */,
 				61E131A1260A957100FAFC82 /* Model */,
 				61E13192260A93F500FAFC82 /* Main.storyboard */,
+				6186FE0D268155E50036C2C5 /* NewDeckVC.storyboard */,
 				61E1319A260A93F900FAFC82 /* Info.plist */,
 				615409A8265E790000ABB8FB /* Support */,
 			);
@@ -188,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61E13194260A93F500FAFC82 /* Main.storyboard in Resources */,
+				6186FE0E268155E50036C2C5 /* NewDeckVC.storyboard in Resources */,
 				615409A4265E78E800ABB8FB /* CardFrontView.xib in Resources */,
 				615409AE265E790000ABB8FB /* Assets.xcassets in Resources */,
 				615409A3265E78E800ABB8FB /* CardBackView.xib in Resources */,
@@ -209,6 +216,7 @@
 				615409B1265E790000ABB8FB /* SceneDelegate.swift in Sources */,
 				615409A5265E78E800ABB8FB /* CardFrontView.swift in Sources */,
 				61E131A3260A957F00FAFC82 /* Card.swift in Sources */,
+				61B89683267A74FA00FCE386 /* NewDeckVC.swift in Sources */,
 				615409A2265E78E800ABB8FB /* CardCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
