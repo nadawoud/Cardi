@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Reusable
 
-class DeckVC: UIViewController {
+class DeckVC: UIViewController, Reusable, StoryboardSceneBased {
+    static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     var deck: CardDeck?
     
