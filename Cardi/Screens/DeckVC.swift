@@ -8,8 +8,7 @@
 import UIKit
 import Reusable
 
-class DeckVC: UIViewController, Reusable, StoryboardSceneBased {
-    static let sceneStoryboard = UIStoryboard(name: "Main", bundle: nil)
+class DeckVC: UIViewController, Reusable, StoryboardBased {
     
     var deck: CardDeck?
     
