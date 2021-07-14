@@ -21,19 +21,27 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     }
     
     private func configureLayout() {
-        collectionView.collectionViewLayout = {
+        collectionView.collectionViewLayout = UICollectionViewCompositionalLayout { [weak self] (sectionIndex, environment) -> NSCollectionLayoutSection? in
+            
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
+            let collectionViewWidth = environment.container.contentSize.width
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .absolute(collectionViewWidth * 0.93), heightDimension: .fractionalHeight(1))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
             
             let section = NSCollectionLayoutSection(group: group)
-            section.orthogonalScrollingBehavior = .paging
             
-          return UICollectionViewCompositionalLayout(section: section)
-        }()
+            // Add leading and trailing insets to the section so groups are aligned to the center
+            let sectionSideInset = (collectionViewWidth - groupSize.widthDimension.dimension) / 2
+            section.contentInsets = .init(top: 0, leading: sectionSideInset, bottom: 0, trailing: sectionSideInset)
+            section.orthogonalScrollingBehavior = .groupPaging
+            
+            
+            return section
+        }
     }
     
     
