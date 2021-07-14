@@ -16,7 +16,7 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        deck?.shuffle()
+        deck?.shuffle()
         configureLayout()
     }
     
@@ -45,12 +45,12 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
 
 extension DeckVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return deck?.cards.count ?? 0
+        return deck?.filteredCards.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: CardCell.self)
-        cell.setup(card: deck?.cards[indexPath.item] ?? Card(title: "Falsch"))
+        cell.setup(card: deck?.filteredCards[indexPath.item] ?? Card(title: "???"))
         return cell
     }
 }
