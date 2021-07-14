@@ -15,8 +15,6 @@ class CardCell: UICollectionViewCell, Reusable {
     @IBOutlet private var cardView: UIView!
     @IBOutlet private var cardFrontView: CardFrontView!
     @IBOutlet private var cardBackView: CardBackView!
-    @IBOutlet private var gotItButton: UIButton!
-    @IBOutlet private var notQuiteButton: UIButton!
     
     private var card: Card?
     
@@ -27,6 +25,8 @@ class CardCell: UICollectionViewCell, Reusable {
     
     func setup(card: Card) {
         self.card = card
+        cardFrontView.isHidden = false
+        cardBackView.isHidden = true
         cardFrontView.setup(card: card)
         cardBackView.setup(card: card)
     }
@@ -51,14 +51,6 @@ class CardCell: UICollectionViewCell, Reusable {
     
     private func flipToFront() {
         UIView.transition(from: cardBackView, to: cardFrontView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews])
-    }
-    
-    @IBAction private func gotIt() {
-       
-    }
-    
-    @IBAction private func notYet() {
-        
     }
     
 }
