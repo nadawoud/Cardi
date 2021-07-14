@@ -11,6 +11,8 @@ import Reusable
 class DeckVC: UIViewController, Reusable, StoryboardBased {
     
     var deck: CardDeck?
+    var numberOfCardsAnsweredCorrectly = 0
+    var currentCardIndex = 0
     
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var endOfDeckView: UIView!
@@ -41,6 +43,13 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
             section.contentInsets = .init(top: 0, leading: sectionSideInset, bottom: 0, trailing: sectionSideInset)
             section.orthogonalScrollingBehavior = .groupPaging
             
+            
+            //TODO: Does this belong here?
+            
+            // Detect horizontal scrolling and find out current Card's index
+            section.visibleItemsInvalidationHandler = { visibleItems, point, environment in
+                self?.currentCardIndex = Int((point.x / environment.container.contentSize.width).rounded())
+            }
             
             return section
         }
