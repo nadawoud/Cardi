@@ -15,7 +15,7 @@ extension CardDeck {
             cards: [
                 Card(title: "Der Vatar", description: "Masculine Nomen", backTitle: "The Father", emoji: "👨🏻‍💼"),
                 Card(title: "Die Mutter", description: "Feminin Nomen", backTitle: "The Mother", emoji: "👩🏻‍💼"),
-                Card(title: "Das Tochter", description: "Neutral Nomen", backTitle: "The Daughter", emoji: "👧🏻"),
+                Card(title: "Die Tochter", description: "Feminin Nomen", backTitle: "The Daughter", emoji: "👧🏻"),
                 Card(title: "Der Sohn", description: "Masculine Nomen", backTitle: "The Son", emoji: "👦🏻"),
                 Card(title: "Der Opa", description: "Masculine Nomen", backTitle: "The Grandpa", emoji: "🧓🏼"),
                 Card(title: "Die Oma", description: "Feminin Nomen", backTitle: "The Grandma", emoji: "👵🏻"),],
