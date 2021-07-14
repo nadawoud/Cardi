@@ -13,7 +13,9 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     var deck: CardDeck?
     
     @IBOutlet private var collectionView: UICollectionView!
-   
+    @IBOutlet private var endOfDeckView: UIView!
+    @IBOutlet private var scoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         deck?.shuffle()
