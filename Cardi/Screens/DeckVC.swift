@@ -59,6 +59,14 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     }
     
     
+    func updateProgressBar() {
+        numberOfCardsAnsweredCorrectly += 1
+        if let numberOfCardsInDeck = deck?.cards.count {
+            let currentProgress = Float(numberOfCardsAnsweredCorrectly) / Float(numberOfCardsInDeck)
+            progressBar.progress = currentProgress
+        }
+    }
+    
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         dismiss(animated: true)
     }
