@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613772CB26B88D2E00A0067B /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 613772CA26B88D2E00A0067B /* Defaults */; };
 		615409A2265E78E800ABB8FB /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154099D265E78E800ABB8FB /* CardCell.swift */; };
 		615409A3265E78E800ABB8FB /* CardBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6154099E265E78E800ABB8FB /* CardBackView.xib */; };
 		615409A4265E78E800ABB8FB /* CardFrontView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6154099F265E78E800ABB8FB /* CardFrontView.xib */; };
@@ -57,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613772CB26B88D2E00A0067B /* Defaults in Frameworks */,
 				616F1917265EA776008530EB /* Reusable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,6 +167,7 @@
 			name = Cardi;
 			packageProductDependencies = (
 				616F1916265EA776008530EB /* Reusable */,
+				613772CA26B88D2E00A0067B /* Defaults */,
 			);
 			productName = Cardi;
 			productReference = 61E13189260A93F500FAFC82 /* Cardi.app */;
@@ -195,6 +198,7 @@
 			mainGroup = 61E13180260A93F500FAFC82;
 			packageReferences = (
 				616F1915265EA776008530EB /* XCRemoteSwiftPackageReference "Reusable" */,
+				613772C926B88D2E00A0067B /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = 61E1318A260A93F500FAFC82 /* Products */;
 			projectDirPath = "";
@@ -441,6 +445,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		613772C926B88D2E00A0067B /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		616F1915265EA776008530EB /* XCRemoteSwiftPackageReference "Reusable" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AliSoftware/Reusable";
@@ -452,6 +464,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		613772CA26B88D2E00A0067B /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 613772C926B88D2E00A0067B /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
 		616F1916265EA776008530EB /* Reusable */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 616F1915265EA776008530EB /* XCRemoteSwiftPackageReference "Reusable" */;
