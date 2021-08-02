@@ -71,6 +71,33 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
         dismiss(animated: true)
     }
     
+    @IBAction func notQuiteButtonTapped(_ sender: UIButton) {
+        //TODO: Fix index out of range bug - It happens sometimes when there's only one Card and that Card has been answered incorrectly a couple of times
+        
+        if let currentCard = deck?.filteredCards[currentCardIndex] {
+            deck?.answer(card: currentCard, correctly: false)
+        }
+        
+        let cell = collectionView.cellForItem(at: IndexPath(item: currentCardIndex, section: 0)) as? CardCell
+        cell?.flipToFrontAndSwipe() { _ in
+            self.collectionView.scrollToItem(at: IndexPath(item: self.currentCardIndex + 1, section: 0), at: .centeredHorizontally, animated: true)
+        }
+    }
+    
+    @IBAction func gotItButtonTapped(_ sender: UIButton) {
+        if let currentCard = deck?.filteredCards[currentCardIndex] {
+            deck?.answer(card: currentCard, correctly: true)
+        }
+        
+        updateProgressBar()
+        
+        if deck?.filteredCards.count != 0 {
+            collectionView.reloadData()
+        } else {
+            endOfDeckView.isHidden = false
+        }
+    }
+    
 }
 
 extension DeckVC: UICollectionViewDataSource {

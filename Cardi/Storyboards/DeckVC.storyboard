@@ -38,7 +38,7 @@
                                                     <action selector="closeButtonTapped:" destination="LEk-Uu-M2U" eventType="touchUpInside" id="9dV-am-SwX"/>
                                                 </connections>
                                             </button>
-                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33000001311302185" translatesAutoresizingMaskIntoConstraints="NO" id="1Dc-4y-16F">
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Dc-4y-16F">
                                                 <rect key="frame" x="33" y="18" width="361" height="4"/>
                                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                             </progressView>
@@ -135,6 +135,9 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="notQuiteButtonTapped:" destination="LEk-Uu-M2U" eventType="touchUpInside" id="SmJ-g2-fvz"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTZ-zw-SsT">
                                                 <rect key="frame" x="247" y="0.0" width="147" height="40"/>
@@ -151,6 +154,9 @@
                                                         <integer key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="gotItButtonTapped:" destination="LEk-Uu-M2U" eventType="touchUpInside" id="0XA-UT-q6b"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -160,22 +166,22 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="oni-rC-ZII">
-                                        <rect key="frame" x="112.5" y="340" width="189" height="138.5"/>
+                                        <rect key="frame" x="102" y="364.5" width="210" height="89"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEO-0a-Tfw">
-                                                <rect key="frame" x="0.0" y="0.0" width="189" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="210" height="30"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <color key="highlightedColor" systemColor="labelColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You answered 1 out of 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekx-d8-suO">
-                                                <rect key="frame" x="0.0" y="59" width="189" height="20.5"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You answered 1 out of 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekx-d8-suO">
+                                                <rect key="frame" x="0.0" y="44.5" width="210" height="0.0"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <nil key="textColor"/>
                                                 <color key="highlightedColor" systemColor="labelColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TEo-fK-LZO">
-                                                <rect key="frame" x="0.0" y="108.5" width="189" height="30"/>
+                                                <rect key="frame" x="0.0" y="59" width="210" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                                 <state key="normal" title="Awesome">
                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
@@ -210,6 +216,9 @@
                     <connections>
                         <outlet property="collectionView" destination="QmE-Ek-yud" id="Z82-WE-WKn"/>
                         <outlet property="endOfDeckView" destination="UDV-gn-6ze" id="hg8-Tp-cLT"/>
+                        <outlet property="gotItButton" destination="gTZ-zw-SsT" id="Dnb-hF-kgF"/>
+                        <outlet property="notQuiteButton" destination="ZRu-5K-MMS" id="TW5-Og-Rlg"/>
+                        <outlet property="progressBar" destination="1Dc-4y-16F" id="FU4-1O-Mj0"/>
                         <outlet property="scoreLabel" destination="Ekx-d8-suO" id="X0k-rA-3f5"/>
                     </connections>
                 </viewController>
