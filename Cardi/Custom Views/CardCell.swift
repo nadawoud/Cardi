@@ -53,4 +53,12 @@ class CardCell: UICollectionViewCell, Reusable {
         UIView.transition(from: cardBackView, to: cardFrontView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews])
     }
     
+    func flipToFrontAndSwipe(completion: ((Bool) -> Void)? = nil) {
+        if cardFrontView.isHidden {
+            flipToFront()
+        } else {
+            completion?(true)
+        }
+    }
+    
 }
