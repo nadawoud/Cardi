@@ -17,4 +17,9 @@ struct CardDeck {
       filteredCards = cards.shuffled()
       filteredCards.forEach { $0.correctlyAnswered = nil }
     }
+    
+    mutating func answer(card: Card, correctly: Bool) {
+        card.correctlyAnswered = correctly
+        filteredCards = cards.filter { $0.correctlyAnswered != true }
+    }
 }
