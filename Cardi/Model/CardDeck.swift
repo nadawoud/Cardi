@@ -14,10 +14,7 @@ struct CardDeck {
     var coverEmoji: String?
     
     mutating func shuffle() {
-      // Take cards we don't know yet, and shuffle them
-      filteredCards = cards.filter { $0.correctlyAnswered != true }.shuffled()
-
-      // Mark the cards as needing to be answered
+      filteredCards = cards.shuffled()
       filteredCards.forEach { $0.correctlyAnswered = nil }
     }
 }
