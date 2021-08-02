@@ -17,6 +17,9 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var endOfDeckView: UIView!
     @IBOutlet private var scoreLabel: UILabel!
+    @IBOutlet private var progressBar: UIProgressView!
+    @IBOutlet private var gotItButton: UIButton!
+    @IBOutlet private var notQuiteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
