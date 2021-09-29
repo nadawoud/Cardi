@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Defaults
 
-struct CardDeck {
+struct CardDeck: Codable, Defaults.Serializable {
     var title: String
     var cards: [Card]
     var filteredCards: [Card] = []
@@ -22,4 +23,8 @@ struct CardDeck {
         card.correctlyAnswered = correctly
         filteredCards = cards.filter { $0.correctlyAnswered != true }
     }
+}
+
+extension Defaults.Keys {
+    static let decksList = Key<[CardDeck]>("decksList", default: CardDeck.mockDeckList)
 }

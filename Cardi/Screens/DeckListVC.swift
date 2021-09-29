@@ -6,16 +6,27 @@
 //
 
 import UIKit
+import Defaults
 
 class DeckListVC: UIViewController {
     
-    private var decks = CardDeck.mockDeckList
+    private var decks = Defaults[.decksList]
+    private var observer: Defaults.Observation?
 
     @IBOutlet private var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
+        
+        observer = Defaults.observe(.decksList) { [weak self] change in
+            self?.decks = change.newValue
+            self?.collectionView.reloadData()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
     
     private func configureLayout() {
@@ -33,24 +44,9 @@ class DeckListVC: UIViewController {
         }()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-      guard
-        segue.identifier == "showCards",
-        let deckCell = sender as? DeckCell,
-        let deckVC = segue.destination as? DeckVC,
-        let deck = deckCell.deck
-      else {
-        return
-      }
-
-        deckVC.deck = deck
-    }
-    
     @IBAction func addNewDeck(_ sender: UIBarButtonItem) {
         let destination = NewDeckVC.instantiate()
-        let navController = UINavigationController(rootViewController: destination)
-//        navController.modalPresentationStyle = .fullScreen
-        self.present(navController, animated: true)
+        self.navigationController?.pushViewController(destination, animated: true)
     }
 }
 

@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import Defaults
 
-class Card {
+class Card: Codable, Defaults.Serializable {
     var title: String
     var description: String?
     var backTitle: String?
