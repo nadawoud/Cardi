@@ -46,9 +46,6 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
             section.contentInsets = .init(top: 0, leading: sectionSideInset, bottom: 0, trailing: sectionSideInset)
             section.orthogonalScrollingBehavior = .groupPaging
             
-            
-            //TODO: Does this belong here?
-            
             // Detect horizontal scrolling and find out current Card's index
             section.visibleItemsInvalidationHandler = { visibleItems, point, environment in
                 self?.currentCardIndex = Int((point.x / environment.container.contentSize.width).rounded())
@@ -79,7 +76,7 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
         }
         
         let cell = collectionView.cellForItem(at: IndexPath(item: currentCardIndex, section: 0)) as? CardCell
-        cell?.flipToFrontAndSwipe() { _ in
+        cell?.flipToFrontIfNeeded() { _ in
             self.collectionView.scrollToItem(at: IndexPath(item: self.currentCardIndex + 1, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
@@ -93,6 +90,13 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
         
         if deck?.filteredCards.count != 0 {
             collectionView.reloadData()
+            
+            // Force update currentCardIndex
+            let collectionWidth = collectionView.frame.width
+            let scrollPosition = collectionView.contentOffset.x
+            
+            let index = Int((scrollPosition / collectionWidth).rounded())
+            self.currentCardIndex = index
         } else {
             endOfDeckView.isHidden = false
         }

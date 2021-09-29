@@ -49,13 +49,13 @@ class CardCell: UICollectionViewCell, Reusable {
         UIView.transition(from: cardFrontView, to: cardBackView, duration: 1.0, options: [.transitionFlipFromRight, .showHideTransitionViews])
     }
     
-    private func flipToFront() {
-        UIView.transition(from: cardBackView, to: cardFrontView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews])
+    private func flipToFront(completion: ((Bool) -> Void)? = nil) {
+        UIView.transition(from: cardBackView, to: cardFrontView, duration: 1.0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: completion)
     }
     
-    func flipToFrontAndSwipe(completion: ((Bool) -> Void)? = nil) {
+    func flipToFrontIfNeeded(completion: ((Bool) -> Void)? = nil) {
         if cardFrontView.isHidden {
-            flipToFront()
+            flipToFront(completion: completion)
         } else {
             completion?(true)
         }
