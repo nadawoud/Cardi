@@ -69,7 +69,6 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     }
     
     @IBAction func notQuiteButtonTapped(_ sender: UIButton) {
-        //TODO: Fix index out of range bug - It happens sometimes when there's only one Card and that Card has been answered incorrectly a couple of times
         
         if let currentCard = deck?.filteredCards[currentCardIndex] {
             deck?.answer(card: currentCard, correctly: false)
