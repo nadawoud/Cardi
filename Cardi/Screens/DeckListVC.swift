@@ -7,26 +7,30 @@
 
 import UIKit
 import Defaults
+import Combine
 
 class DeckListVC: UIViewController {
     
-    private var decks = Defaults[.decksList]
-    private var observer: Defaults.Observation?
-
+    let viewModel = DeckListViewModel()
+    private var subscriptions = Set<AnyCancellable>()
+    
     @IBOutlet private var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
+        setupBindings()
         
-        observer = Defaults.observe(.decksList) { [weak self] change in
-            self?.decks = change.newValue
-            self?.collectionView.reloadData()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
+    }
+    
+    private func setupBindings() {
+        viewModel.$decks.sink { [weak self] decks in
+            self?.collectionView.reloadData()
+        }.store(in: &subscriptions)
     }
     
     private func configureLayout() {
@@ -53,12 +57,12 @@ class DeckListVC: UIViewController {
 
 extension DeckListVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return decks.count
+        return viewModel.decks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: DeckCell.self)
-        cell.setup(deck: decks[indexPath.item])
+        cell.setup(deck: viewModel.decks[indexPath.item])
         return cell
     }
 }
@@ -66,7 +70,7 @@ extension DeckListVC: UICollectionViewDataSource {
 
 extension DeckListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let deck = decks[indexPath.item]
+        let deck = viewModel.decks[indexPath.item]
         let destination = DeckVC.instantiate()
         destination.deck = deck
         let navController = UINavigationController(rootViewController: destination)
