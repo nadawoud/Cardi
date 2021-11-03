@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HFk-0u-QOW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gW8-Dr-V6J">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--New DeckVC-->
-        <scene sceneID="kd5-Rp-cDa">
+        <scene sceneID="66e-Bf-PMQ">
             <objects>
-                <viewController storyboardIdentifier="NewDeckVC" id="HFk-0u-QOW" customClass="NewDeckVC" customModule="Cardi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u34-4T-anm">
+                <viewController storyboardIdentifier="NewDeckVC" id="gW8-Dr-V6J" customClass="NewDeckVC" customModule="Cardi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6IY-kK-jKL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Kf-ZME">
-                                <rect key="frame" x="20" y="302" width="374" height="292"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xNY-oR-gTs">
+                                <rect key="frame" x="20" y="210" width="374" height="476"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fm3-dq-x3D">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Bp-hW-Wp1">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🍕" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="TJV-cX-FpP">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🍕" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1gh-sI-3T8">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="BJw-JQ-hQh"/>
-                                                    <constraint firstAttribute="width" constant="80" id="ErV-n1-2yJ"/>
+                                                    <constraint firstAttribute="width" constant="80" id="7GE-AF-h2p"/>
+                                                    <constraint firstAttribute="height" constant="80" id="tYb-Dx-F8Y"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zUF-bM-L26">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="F3M-on-9Ip">
                                                 <rect key="frame" x="100" y="23" width="274" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qZ1-vv-jHs">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="anO-Vt-ua2">
                                                         <rect key="frame" x="0.0" y="0.0" width="274" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -44,61 +46,116 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0M-jP-Yty">
-                                        <rect key="frame" x="0.0" y="110" width="374" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="684-gM-Ypg">
-                                        <rect key="frame" x="0.0" y="190" width="374" height="36"/>
-                                        <color key="backgroundColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                        <state key="normal" title="Add Card">
-                                            <color key="titleColor" systemColor="systemBackgroundColor"/>
-                                        </state>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t5K-Fv-Pnz">
+                                        <rect key="frame" x="0.0" y="110" width="374" height="300"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="300" id="aoi-Ca-6Yi"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cqS-u0-V1x">
+                                            <size key="itemSize" width="221" height="297"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewCardCell" id="TQ2-uR-E3x" customClass="NewCardCell" customModule="Cardi" customModuleProvider="target">
+                                                <rect key="frame" x="76.5" y="0.0" width="221" height="297"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GnU-xv-FFr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIe-t3-uqS" customClass="CardFrontView" customModule="Cardi" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="VIe-t3-uqS" firstAttribute="top" secondItem="GnU-xv-FFr" secondAttribute="top" id="2RV-Qx-0aV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="VIe-t3-uqS" secondAttribute="trailing" id="4kU-TJ-0JZ"/>
+                                                        <constraint firstAttribute="bottom" secondItem="VIe-t3-uqS" secondAttribute="bottom" id="UBd-tV-Shd"/>
+                                                        <constraint firstItem="VIe-t3-uqS" firstAttribute="leading" secondItem="GnU-xv-FFr" secondAttribute="leading" id="o07-s4-gEr"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="221" height="297"/>
+                                                <connections>
+                                                    <outlet property="cardFrontView" destination="VIe-t3-uqS" id="y6F-tZ-jBi"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="AddCardCell" id="wcj-1g-cUJ" customClass="AddCardCell" customModule="Cardi" customModuleProvider="target">
+                                                <rect key="frame" x="76.5" y="307" width="221" height="297"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ltK-Hh-d9j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="os7-5g-Gai">
+                                                            <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                                <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30" scale="large" weight="black"/>
+                                                                <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="addCardButtonTapped:" destination="wcj-1g-cUJ" eventType="touchUpInside" id="98P-tq-wWL"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="os7-5g-Gai" secondAttribute="bottom" id="LNG-RS-Mae"/>
+                                                        <constraint firstAttribute="trailing" secondItem="os7-5g-Gai" secondAttribute="trailing" id="Pr5-UJ-DCS"/>
+                                                        <constraint firstItem="os7-5g-Gai" firstAttribute="top" secondItem="ltK-Hh-d9j" secondAttribute="top" id="QXS-6g-UXI"/>
+                                                        <constraint firstItem="os7-5g-Gai" firstAttribute="leading" secondItem="ltK-Hh-d9j" secondAttribute="leading" id="oVb-mJ-tLo"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <connections>
+                                                    <outlet property="addButton" destination="os7-5g-Gai" id="m5f-5y-YEC"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
                                         <connections>
-                                            <action selector="addCardsButtonTapped:" destination="HFk-0u-QOW" eventType="touchUpInside" id="K6h-1J-80Q"/>
+                                            <outlet property="dataSource" destination="gW8-Dr-V6J" id="3Ig-Tg-SEH"/>
+                                            <outlet property="delegate" destination="gW8-Dr-V6J" id="dHD-cF-iul"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jcl-fN-gNx">
-                                        <rect key="frame" x="0.0" y="256" width="374" height="36"/>
+                                    </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDV-eF-X2x">
+                                        <rect key="frame" x="0.0" y="440" width="374" height="36"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Done">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="doneButtonTapped" destination="HFk-0u-QOW" eventType="touchUpInside" id="ZgR-6Q-z4T"/>
+                                            <action selector="doneButtonTapped" destination="gW8-Dr-V6J" eventType="touchUpInside" id="a0b-4f-YXW"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="PLh-HG-ZFX"/>
+                        <viewLayoutGuide key="safeArea" id="j4n-WH-Lci"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IaL-Kf-ZME" firstAttribute="leading" secondItem="PLh-HG-ZFX" secondAttribute="leading" constant="20" id="3bk-Gn-FHe"/>
-                            <constraint firstItem="IaL-Kf-ZME" firstAttribute="centerY" secondItem="u34-4T-anm" secondAttribute="centerY" id="Hzq-4b-yCC"/>
-                            <constraint firstItem="PLh-HG-ZFX" firstAttribute="trailing" secondItem="IaL-Kf-ZME" secondAttribute="trailing" constant="20" id="Vsf-Bl-Uud"/>
-                            <constraint firstItem="IaL-Kf-ZME" firstAttribute="centerX" secondItem="u34-4T-anm" secondAttribute="centerX" id="fWT-u3-m9z"/>
+                            <constraint firstItem="xNY-oR-gTs" firstAttribute="centerY" secondItem="6IY-kK-jKL" secondAttribute="centerY" id="3O7-EY-fxT"/>
+                            <constraint firstItem="xNY-oR-gTs" firstAttribute="centerX" secondItem="6IY-kK-jKL" secondAttribute="centerX" id="JmZ-5v-nwz"/>
+                            <constraint firstItem="xNY-oR-gTs" firstAttribute="leading" secondItem="j4n-WH-Lci" secondAttribute="leading" constant="20" id="Mh6-93-RoW"/>
+                            <constraint firstItem="j4n-WH-Lci" firstAttribute="trailing" secondItem="xNY-oR-gTs" secondAttribute="trailing" constant="20" id="ifu-J5-pTe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QTk-L9-H4m"/>
+                    <navigationItem key="navigationItem" id="pec-Fq-hte"/>
                     <connections>
-                        <outlet property="cardLabel" destination="c0M-jP-Yty" id="xew-Sh-NHP"/>
-                        <outlet property="deckTitleTextField" destination="qZ1-vv-jHs" id="oKF-D1-Wzo"/>
+                        <outlet property="collectionView" destination="t5K-Fv-Pnz" id="Gw1-Y7-1SW"/>
+                        <outlet property="deckTitleTextField" destination="anO-Vt-ua2" id="Fdm-Aa-160"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="15a-HX-poy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fgc-Sp-rlG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737.68115942028987" y="-703.125"/>
+            <point key="canvasLocation" x="322" y="-753"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
