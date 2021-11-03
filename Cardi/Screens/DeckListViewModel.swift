@@ -20,5 +20,4 @@ class DeckListViewModel {
             self?.decks = change.newValue
         }
     }
-    
 }

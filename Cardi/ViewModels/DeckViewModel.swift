@@ -10,31 +10,26 @@ import Combine
 import UIKit
 
 class DeckViewModel {
-    let deck: CardDeck
+    var deck: CardDeck
     var filteredCards: [Card] {
-        cards.filter { $0.correctlyAnswered != true }
+        deck.cards.filter { $0.correctlyAnswered != true }
     }
-    
-    let cards: [Card]
+    var currentCardIndex = 0
     
     @Published var currentProgress: Float = 0.0
     
-    var currentCardIndex = 0
-    
     init(deck: CardDeck) {
-        cards = deck.cards.shuffled()
-        cards.filter { $0.correctlyAnswered != true }.forEach { $0.correctlyAnswered = nil }
-        
         self.deck = deck
+        self.deck.cards.shuffle()
+        self.deck.cards.forEach { $0.correctlyAnswered = nil }
     }
     
     private func updateProgressBar() {
-        currentProgress = Float(deck.cards.filter { $0.correctlyAnswered ?? false }.count) / Float(deck.cards.count)
+        currentProgress = Float(deck.cards.filter { $0.correctlyAnswered == true }.count) / Float(deck.cards.count)
     }
     
     func answer(card: Card, correctly: Bool) {
         card.correctlyAnswered = correctly
-        
         updateProgressBar()
     }
     

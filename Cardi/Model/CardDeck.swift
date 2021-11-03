@@ -8,20 +8,15 @@
 import Foundation
 import Defaults
 
-struct CardDeck: Codable, Defaults.Serializable {
+class CardDeck: Codable, Defaults.Serializable {
     var title: String
     var cards: [Card]
-    var filteredCards: [Card] = []
     var coverEmoji: String?
     
-    mutating func shuffle() {
-      filteredCards = cards.shuffled()
-      filteredCards.forEach { $0.correctlyAnswered = nil }
-    }
-    
-    mutating func answer(card: Card, correctly: Bool) {
-        card.correctlyAnswered = correctly
-        filteredCards = cards.filter { $0.correctlyAnswered != true }
+    init(title: String, cards: [Card], coverEmoji: String? = nil) {
+        self.title = title
+        self.cards = cards
+        self.coverEmoji = coverEmoji
     }
 }
 

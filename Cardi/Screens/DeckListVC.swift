@@ -28,7 +28,7 @@ class DeckListVC: UIViewController {
     }
     
     private func setupBindings() {
-        viewModel.$decks.sink { [weak self] decks in
+        viewModel.$decks.sink { [weak self] _ in
             self?.collectionView.reloadData()
         }.store(in: &subscriptions)
     }
@@ -72,7 +72,7 @@ extension DeckListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let deck = viewModel.decks[indexPath.item]
         let destination = DeckVC.instantiate()
-        destination.deck = deck
+        destination.viewModel = DeckViewModel(deck: deck)
         let navController = UINavigationController(rootViewController: destination)
         navController.modalPresentationStyle = .fullScreen
         self.present(navController, animated: true)

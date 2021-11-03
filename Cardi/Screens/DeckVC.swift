@@ -7,12 +7,12 @@
 
 import UIKit
 import Reusable
+import Combine
 
 class DeckVC: UIViewController, Reusable, StoryboardBased {
     
-    var deck: CardDeck?
-    var numberOfCardsAnsweredCorrectly = 0
-    var currentCardIndex = 0
+    var viewModel: DeckViewModel!
+    private var subscriptions = Set<AnyCancellable>()
     
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var endOfDeckView: UIView!
@@ -23,8 +23,14 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        deck?.shuffle()
         configureLayout()
+        setupBindings()
+    }
+    
+    func setupBindings() {
+        viewModel?.$currentProgress.sink { [weak self] in
+            self?.progressBar.progress = $0
+        }.store(in: &subscriptions)
     }
     
     private func configureLayout() {
@@ -48,19 +54,10 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
             
             // Detect horizontal scrolling and find out current Card's index
             section.visibleItemsInvalidationHandler = { visibleItems, point, environment in
-                self?.currentCardIndex = Int((point.x / environment.container.contentSize.width).rounded())
+                self?.viewModel.calculateCurrentCardIndex(x: point.x, width: environment.container.contentSize.width)
             }
             
             return section
-        }
-    }
-    
-    
-    func updateProgressBar() {
-        numberOfCardsAnsweredCorrectly += 1
-        if let numberOfCardsInDeck = deck?.cards.count {
-            let currentProgress = Float(numberOfCardsAnsweredCorrectly) / Float(numberOfCardsInDeck)
-            progressBar.progress = currentProgress
         }
     }
     
@@ -69,25 +66,19 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     }
     
     @IBAction func notQuiteButtonTapped(_ sender: UIButton) {
+        viewModel.answer(card: viewModel.filteredCards[viewModel.currentCardIndex], correctly: false)
         
-        if let currentCard = deck?.filteredCards[currentCardIndex] {
-            deck?.answer(card: currentCard, correctly: false)
-        }
-        
-        let cell = collectionView.cellForItem(at: IndexPath(item: currentCardIndex, section: 0)) as? CardCell
-        cell?.flipToFrontIfNeeded() { _ in
-            self.collectionView.scrollToItem(at: IndexPath(item: self.currentCardIndex + 1, section: 0), at: .centeredHorizontally, animated: true)
+        let cell = collectionView.cellForItem(at: IndexPath(item: viewModel.currentCardIndex, section: 0)) as? CardCell
+        cell?.flipToFrontIfNeeded() { [weak self] _ in
+            guard let self = self else { return }
+            self.collectionView.scrollToItem(at: IndexPath(item: self.viewModel.currentCardIndex + 1, section: 0), at: .centeredHorizontally, animated: true)
         }
     }
     
     @IBAction func gotItButtonTapped(_ sender: UIButton) {
-        if let currentCard = deck?.filteredCards[currentCardIndex] {
-            deck?.answer(card: currentCard, correctly: true)
-        }
+        viewModel.answer(card: viewModel.filteredCards[viewModel.currentCardIndex], correctly: true)
         
-        updateProgressBar()
-        
-        if deck?.filteredCards.count != 0 {
+        if viewModel.filteredCards.count != 0 {
             collectionView.reloadData()
             
             // Force update currentCardIndex
@@ -95,7 +86,7 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
             let scrollPosition = collectionView.contentOffset.x
             
             let index = Int((scrollPosition / collectionWidth).rounded())
-            self.currentCardIndex = index
+            self.viewModel.currentCardIndex = index
         } else {
             endOfDeckView.isHidden = false
         }
@@ -105,12 +96,12 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
 
 extension DeckVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return deck?.filteredCards.count ?? 0
+        return viewModel.filteredCards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: CardCell.self)
-        cell.setup(card: deck?.filteredCards[indexPath.item] ?? Card(title: "???"))
+        cell.setup(card: viewModel.filteredCards[indexPath.item])
         return cell
     }
 }
