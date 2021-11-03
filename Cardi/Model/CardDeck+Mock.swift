@@ -57,7 +57,7 @@ extension CardDeck {
                 Card(title: "Der Arzt/ Die Ärztin", backTitle: "Doctor", emoji: "👩🏻‍⚕️"),
                 Card(title: "Der Pilot/ Die Pilotin", backTitle: "Pilot", emoji: "👨🏻‍✈️"),
                 Card(title: "Der Lehrer/ Die Lehrerin", backTitle: "Teacher", emoji: "👩🏽‍🏫"),
-                Card(title: "Der Künstler/ Die Künstlerin", backTitle: "Teacher", emoji: "👨🏻‍🎨"),
-                Card(title: "Der Polizist/ Die Polizistin", backTitle: "Teacher", emoji: "👮🏼"), ],
+                Card(title: "Der Künstler/ Die Künstlerin", backTitle: "Artist", emoji: "👨🏻‍🎨"),
+                Card(title: "Der Polizist/ Die Polizistin", backTitle: "Police Officer", emoji: "👮🏼"), ],
         coverEmoji: "👔")]
 }
