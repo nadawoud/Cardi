@@ -12,9 +12,14 @@ import UIKit
 class DeckViewModel {
     var deck: CardDeck
     var filteredCards: [Card] {
-        deck.cards.filter { $0.correctlyAnswered != true }
+        return deck.cards.filter { $0.correctlyAnswered != true }
     }
-    var currentCardIndex = 0
+    
+    var currentCardIndex = 0 {
+        didSet {
+            print("currentCardIndex: \(currentCardIndex)")
+        }
+    }
     
     @Published var currentProgress: Float = 0.0
     
@@ -28,12 +33,14 @@ class DeckViewModel {
         currentProgress = Float(deck.cards.filter { $0.correctlyAnswered == true }.count) / Float(deck.cards.count)
     }
     
-    func answer(card: Card, correctly: Bool) {
+    func answer(correctly: Bool) {
+        let card = filteredCards[currentCardIndex]
         card.correctlyAnswered = correctly
         updateProgressBar()
     }
     
     func calculateCurrentCardIndex(x: CGFloat, width: CGFloat) {
+        print("x: \(x), width: \(width)")
         currentCardIndex = Int((x / width).rounded())
     }
 }

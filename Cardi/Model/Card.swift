@@ -31,3 +31,10 @@ class Card: Codable, Defaults.Serializable {
       self.correctlyAnswered = correctlyAnswered
     }
 }
+extension Card: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "<Card: \(title), correctlyAnswered \(correctlyAnswered)>"
+    }
+    
+    
+}

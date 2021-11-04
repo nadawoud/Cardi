@@ -54,6 +54,7 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
             
             // Detect horizontal scrolling and find out current Card's index
             section.visibleItemsInvalidationHandler = { visibleItems, point, environment in
+                print("visibleItemsInvalidationHandler")
                 self?.viewModel.calculateCurrentCardIndex(x: point.x, width: environment.container.contentSize.width)
             }
             
@@ -66,7 +67,7 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     }
     
     @IBAction func notQuiteButtonTapped(_ sender: UIButton) {
-        viewModel.answer(card: viewModel.filteredCards[viewModel.currentCardIndex], correctly: false)
+        viewModel.answer(correctly: false)
         
         let cell = collectionView.cellForItem(at: IndexPath(item: viewModel.currentCardIndex, section: 0)) as? CardCell
         cell?.flipToFrontIfNeeded() { [weak self] _ in
@@ -76,22 +77,14 @@ class DeckVC: UIViewController, Reusable, StoryboardBased {
     }
     
     @IBAction func gotItButtonTapped(_ sender: UIButton) {
-        viewModel.answer(card: viewModel.filteredCards[viewModel.currentCardIndex], correctly: true)
+        viewModel.answer(correctly: true)
         
         if viewModel.filteredCards.count != 0 {
             collectionView.reloadData()
-            
-            // Force update currentCardIndex
-            let collectionWidth = collectionView.frame.width
-            let scrollPosition = collectionView.contentOffset.x
-            
-            let index = Int((scrollPosition / collectionWidth).rounded())
-            self.viewModel.currentCardIndex = index
         } else {
             endOfDeckView.isHidden = false
         }
     }
-    
 }
 
 extension DeckVC: UICollectionViewDataSource {

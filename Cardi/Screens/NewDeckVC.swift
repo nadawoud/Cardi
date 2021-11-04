@@ -33,7 +33,8 @@ class NewDeckVC: UIViewController, StoryboardBased {
     }
     
     private func configureNavigation() {
-        navigationController?.title = "Create Deck"
+        navigationItem.title = "Create Deck"
+        navigationController?.navigationBar.prefersLargeTitles = false
         let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeButtonTapped))
         navigationItem.leftBarButtonItem = closeButton
     }
@@ -76,6 +77,10 @@ extension NewDeckVC: NewCardVCDelegate {
         viewModel.addCard(card)
     }
     
+    func cardEdited(card: Card) {
+        collectionView.reloadData()
+    }
+    
 }
 
 extension NewDeckVC: AddCardCellDelegate {
@@ -109,6 +114,7 @@ extension NewDeckVC: UICollectionViewDelegate, UICollectionViewDataSource {
         //TODO: Open EditCardVC
         let destination = NewCardVC.instantiate()
         destination.delegate = self
+        destination.card = viewModel.cards[indexPath.item]
         self.navigationController?.pushViewController(destination, animated: true)
     }
     

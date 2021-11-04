@@ -93,7 +93,7 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="os7-5g-Gai">
                                                             <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
                                                             <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" title=" ">
+                                                            <buttonConfiguration key="configuration" style="plain">
                                                                 <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30" scale="large" weight="black"/>
                                                                 <color key="baseForegroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
