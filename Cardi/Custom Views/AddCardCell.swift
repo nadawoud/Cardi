@@ -28,6 +28,7 @@ class AddCardCell: UICollectionViewCell, Reusable {
     }
     
     func configure() {
+        addButton.setTitle("", for: .normal)
         layer.borderWidth = 3
         layer.borderColor = UIColor.systemGray3.cgColor
         layer.cornerRadius = 25
