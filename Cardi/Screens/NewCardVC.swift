@@ -7,6 +7,7 @@
 
 import UIKit
 import Reusable
+import FittedSheets
 
 protocol NewCardVCDelegate: AnyObject {
     func cardCreated(card: Card)
@@ -18,6 +19,12 @@ class NewCardVC: UIViewController, StoryboardBased {
     weak var delegate: NewCardVCDelegate?
     var card: Card?
     
+    @IBOutlet weak var emojiLabel: UILabel! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
+            emojiLabel.addGestureRecognizer(tap)
+        }
+    }
     @IBOutlet weak var cardTitleTextField: UITextField!
     @IBOutlet weak var cardBackTitleTextField: UITextField!
     @IBOutlet weak var cardDescriptionTextField: UITextField!
@@ -27,7 +34,13 @@ class NewCardVC: UIViewController, StoryboardBased {
         super.viewDidLoad()
         configure()
         configureNavigation()
+//        addTapGesture()
     }
+    
+//    private func addTapGesture() {
+//        let tap = UIGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
+//        emojiLabel.addGestureRecognizer(tap)
+//    }
     
     private func configureNavigation() {
         navigationItem.title = card == nil ? "Create Card" : "Edit Card"
@@ -63,5 +76,26 @@ class NewCardVC: UIViewController, StoryboardBased {
     
     @objc func closeButtonTapped() {
         self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func emojiLabelTapped() {
+        print("emojiLabelTapped")
+        guard let emojiPicker = storyboard?.instantiateViewController(withIdentifier: "EmojiPickerVC") as? EmojiPickerVC else { return }
+        emojiPicker.delegate = self
+        displayEmojiPicker(popController: emojiPicker, dismiss: true, sizes: [.fixed(280)])
+    }
+    
+    func displayEmojiPicker(popController: UIViewController, dismiss: Bool, sizes: [SheetSize]) {
+        let sheetVC = SheetViewController(controller: popController, sizes: sizes)
+        sheetVC.hasBlurBackground = true
+        sheetVC.dismissOnOverlayTap = dismiss
+        sheetVC.treatPullBarAsClear = true
+        present(sheetVC, animated: true)
+    }
+}
+
+extension NewCardVC: EmojiPickerDelegate {
+    func didPickEmoji(_ emoji: String) {
+        emojiLabel.text = emoji
     }
 }

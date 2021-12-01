@@ -147,6 +147,7 @@
                     <connections>
                         <outlet property="collectionView" destination="t5K-Fv-Pnz" id="Gw1-Y7-1SW"/>
                         <outlet property="deckTitleTextField" destination="anO-Vt-ua2" id="Fdm-Aa-160"/>
+                        <outlet property="emojiTextField" destination="1gh-sI-3T8" id="jzF-nY-c1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgc-Sp-rlG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
