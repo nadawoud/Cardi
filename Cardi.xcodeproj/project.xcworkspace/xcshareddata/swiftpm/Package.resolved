@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "FittedSheets",
+        "repositoryURL": "https://github.com/gordontucker/FittedSheets",
+        "state": {
+          "branch": null,
+          "revision": "65f9c93718f96c6de234d38c9976e67a0d9e2b28",
+          "version": "2.4.2"
+        }
+      },
+      {
         "package": "Reusable",
         "repositoryURL": "https://github.com/AliSoftware/Reusable",
         "state": {

@@ -9,7 +9,6 @@ import UIKit
 import Reusable
 import Defaults
 import Combine
-import EmojiPicker
 
 class NewDeckVC: UIViewController, StoryboardBased {
     
@@ -24,7 +23,6 @@ class NewDeckVC: UIViewController, StoryboardBased {
         super.viewDidLoad()
         configureNavigation()
         configureLayout()
-        configureEmojiPicker()
         
         viewModel.$cards.sink { [weak self] _ in
             self?.collectionView.reloadData()
@@ -40,14 +38,6 @@ class NewDeckVC: UIViewController, StoryboardBased {
         navigationController?.navigationBar.prefersLargeTitles = false
         let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeButtonTapped))
         navigationItem.leftBarButtonItem = closeButton
-    }
-    
-    private func configureEmojiPicker() {
-        let emojiPickerVC = EmojiPicker.viewController
-        emojiPickerVC.sourceView = emojiTextField
-        emojiPickerVC.sourceRect = emojiTextField.frame
-        emojiPickerVC.delegate = self
-        present(emojiPickerVC, animated: true, completion: nil)
     }
     
     private func configureLayout() {
@@ -129,11 +119,4 @@ extension NewDeckVC: UICollectionViewDelegate, UICollectionViewDataSource {
         self.navigationController?.pushViewController(destination, animated: true)
     }
     
-}
-
-extension NewDeckVC: EmojiPickerViewControllerDelegate {
-    
-    func emojiPickerViewController(_ controller: EmojiPickerViewController, didSelect emoji: String) {
-        emojiTextField.text = emoji
-    }
 }
