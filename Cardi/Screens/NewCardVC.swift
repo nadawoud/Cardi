@@ -34,13 +34,7 @@ class NewCardVC: UIViewController, StoryboardBased {
         super.viewDidLoad()
         configure()
         configureNavigation()
-//        addTapGesture()
     }
-    
-//    private func addTapGesture() {
-//        let tap = UIGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
-//        emojiLabel.addGestureRecognizer(tap)
-//    }
     
     private func configureNavigation() {
         navigationItem.title = card == nil ? "Create Card" : "Edit Card"
@@ -79,8 +73,7 @@ class NewCardVC: UIViewController, StoryboardBased {
     }
 
     @objc private func emojiLabelTapped() {
-        print("emojiLabelTapped")
-        guard let emojiPicker = storyboard?.instantiateViewController(withIdentifier: "EmojiPickerVC") as? EmojiPickerVC else { return }
+        let emojiPicker = EmojiPickerVC.instantiate()
         emojiPicker.delegate = self
         displayEmojiPicker(popController: emojiPicker, dismiss: true, sizes: [.fixed(280)])
     }

@@ -23,6 +23,7 @@
 		616FD61C2757DEBF00926E4D /* EmojiPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FD61B2757DEBF00926E4D /* EmojiPickerVC.swift */; };
 		616FD61E2757E12200926E4D /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FD61D2757E12100926E4D /* Emoji.swift */; };
 		616FD6222757E91300926E4D /* EmojiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616FD6212757E91300926E4D /* EmojiCell.swift */; };
+		617D1D5027672EC100F59831 /* EmojiPickerVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 617D1D4F27672EC100F59831 /* EmojiPickerVC.storyboard */; };
 		6186FE0E268155E50036C2C5 /* NewDeckVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6186FE0D268155E50036C2C5 /* NewDeckVC.storyboard */; };
 		6186FE132688CE510036C2C5 /* DeckVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6186FE122688CE510036C2C5 /* DeckVC.storyboard */; };
 		619329EE26656F2200595D12 /* CardDeck+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619329ED26656F2200595D12 /* CardDeck+Mock.swift */; };
@@ -55,6 +56,7 @@
 		616FD61B2757DEBF00926E4D /* EmojiPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPickerVC.swift; sourceTree = "<group>"; };
 		616FD61D2757E12100926E4D /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
 		616FD6212757E91300926E4D /* EmojiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCell.swift; sourceTree = "<group>"; };
+		617D1D4F27672EC100F59831 /* EmojiPickerVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmojiPickerVC.storyboard; sourceTree = "<group>"; };
 		6186FE0D268155E50036C2C5 /* NewDeckVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewDeckVC.storyboard; sourceTree = "<group>"; };
 		6186FE122688CE510036C2C5 /* DeckVC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DeckVC.storyboard; sourceTree = "<group>"; };
 		619329ED26656F2200595D12 /* CardDeck+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardDeck+Mock.swift"; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				6186FE122688CE510036C2C5 /* DeckVC.storyboard */,
 				6186FE0D268155E50036C2C5 /* NewDeckVC.storyboard */,
 				61CD9D3526FCFD0900242B58 /* NewCardVC.storyboard */,
+				617D1D4F27672EC100F59831 /* EmojiPickerVC.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				61CD9D3626FCFD0900242B58 /* NewCardVC.storyboard in Resources */,
 				61E13194260A93F500FAFC82 /* Main.storyboard in Resources */,
+				617D1D5027672EC100F59831 /* EmojiPickerVC.storyboard in Resources */,
 				6186FE0E268155E50036C2C5 /* NewDeckVC.storyboard in Resources */,
 				615409A4265E78E800ABB8FB /* CardFrontView.xib in Resources */,
 				615409AE265E790000ABB8FB /* Assets.xcassets in Resources */,

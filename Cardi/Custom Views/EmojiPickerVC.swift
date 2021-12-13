@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Reusable
 
 protocol EmojiPickerDelegate: AnyObject {
     func didPickEmoji(_ emoji: String)
 }
 
 
-class EmojiPickerVC: UIViewController {
+class EmojiPickerVC: UIViewController, StoryboardBased {
     let emoji = Emoji.shared
     
     @IBOutlet weak var collectionView: UICollectionView!
