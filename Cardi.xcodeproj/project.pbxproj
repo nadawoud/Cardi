@@ -264,15 +264,15 @@
 		61E1318B260A93F500FAFC82 /* Cardi */ = {
 			isa = PBXGroup;
 			children = (
-				61402386278788B900C1A9BE /* Assets */,
-				61CEC789276A695800CF29AC /* Fonts */,
 				6186FE112688CE160036C2C5 /* Storyboards */,
 				61ABBD412665473C00A20F11 /* Screens */,
 				61A8BB4D2704ED3900FCA8CF /* ViewModels */,
 				6154099C265E78E800ABB8FB /* Custom Views */,
 				61E131A1260A957100FAFC82 /* Model */,
-				61E1319A260A93F900FAFC82 /* Info.plist */,
 				615409A8265E790000ABB8FB /* Support */,
+				61CEC789276A695800CF29AC /* Fonts */,
+				61402386278788B900C1A9BE /* Assets */,
+				61E1319A260A93F900FAFC82 /* Info.plist */,
 			);
 			path = Cardi;
 			sourceTree = "<group>";
