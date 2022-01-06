@@ -148,16 +148,9 @@
 		6154099C265E78E800ABB8FB /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				61C2FE6A272549D000DCB766 /* AddCardCell.swift */,
-				61C2FE682725455A00DCB766 /* NewCardCell.swift */,
-				619329F32665B3FE00595D12 /* DeckCell.swift */,
-				6154099D265E78E800ABB8FB /* CardCell.swift */,
-				6154099E265E78E800ABB8FB /* CardBackView.xib */,
-				6154099F265E78E800ABB8FB /* CardFrontView.xib */,
-				615409A0265E78E800ABB8FB /* CardFrontView.swift */,
-				615409A1265E78E800ABB8FB /* CardBackView.swift */,
-				616FD6212757E91300926E4D /* EmojiCell.swift */,
 				61E2F5BA277D85D20088D7CF /* EmojiSectionHeaderView.swift */,
+				61E2F5B7277D84BA0088D7CF /* CollectionViewCells */,
+				61E2F5B8277D85120088D7CF /* Views */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -293,6 +286,29 @@
 				616FD61D2757E12100926E4D /* Emoji.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		61E2F5B7277D84BA0088D7CF /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				61C2FE6A272549D000DCB766 /* AddCardCell.swift */,
+				61C2FE682725455A00DCB766 /* NewCardCell.swift */,
+				616FD6212757E91300926E4D /* EmojiCell.swift */,
+				6154099D265E78E800ABB8FB /* CardCell.swift */,
+				619329F32665B3FE00595D12 /* DeckCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		61E2F5B8277D85120088D7CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6154099E265E78E800ABB8FB /* CardBackView.xib */,
+				6154099F265E78E800ABB8FB /* CardFrontView.xib */,
+				615409A0265E78E800ABB8FB /* CardFrontView.swift */,
+				615409A1265E78E800ABB8FB /* CardBackView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
