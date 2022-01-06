@@ -19,24 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CIe-d7-Woj">
-                                <rect key="frame" x="0.0" y="602" width="414" height="260"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HA-yr-kLz">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                        <items/>
-                                    </toolbar>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HhZ-yJ-6lB">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="216"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4mF-Of-bZI">
                                             <size key="itemSize" width="85" height="79"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="headerReferenceSize" width="50" height="50"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EmojiCell" id="60c-NO-VLR" customClass="EmojiCell" customModule="Cardi" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3B3-E2-0yd">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -60,15 +56,31 @@
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
+                                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="EmojiSectionHeaderView" id="qg2-f4-Ssz" customClass="EmojiSectionHeaderView" customModule="Cardi" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smileys &amp; People" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhQ-Fo-g2F">
+                                                    <rect key="frame" x="13" y="16.5" width="118.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qhQ-Fo-g2F" firstAttribute="leading" secondItem="qg2-f4-Ssz" secondAttribute="leadingMargin" constant="5" id="sFm-uD-Fi0"/>
+                                                <constraint firstItem="qhQ-Fo-g2F" firstAttribute="centerY" secondItem="qg2-f4-Ssz" secondAttribute="centerY" id="sGy-AG-tsU"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="headerLabel" destination="qhQ-Fo-g2F" id="NhK-w8-eTz"/>
+                                            </connections>
+                                        </collectionReusableView>
                                         <connections>
                                             <outlet property="dataSource" destination="Uss-hB-fTj" id="6BG-Wx-1Fn"/>
                                             <outlet property="delegate" destination="Uss-hB-fTj" id="FfF-H2-bQa"/>
                                         </connections>
                                     </collectionView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="260" id="rgs-BJ-NhK"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UVV-ka-LHO"/>
@@ -77,11 +89,11 @@
                             <constraint firstItem="UVV-ka-LHO" firstAttribute="bottom" secondItem="CIe-d7-Woj" secondAttribute="bottom" id="8Dq-De-wMI"/>
                             <constraint firstItem="UVV-ka-LHO" firstAttribute="trailing" secondItem="CIe-d7-Woj" secondAttribute="trailing" id="Kk3-Eg-oDN"/>
                             <constraint firstItem="CIe-d7-Woj" firstAttribute="leading" secondItem="UVV-ka-LHO" secondAttribute="leading" id="bd5-JB-0py"/>
+                            <constraint firstItem="CIe-d7-Woj" firstAttribute="top" secondItem="UVV-ka-LHO" secondAttribute="top" id="mao-wN-ih3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="HhZ-yJ-6lB" id="A4Z-P2-HXc"/>
-                        <outlet property="toolbar" destination="5HA-yr-kLz" id="fHs-Dg-etg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fqd-qd-rSm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
