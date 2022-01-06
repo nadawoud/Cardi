@@ -75,14 +75,8 @@ class NewCardVC: UIViewController, StoryboardBased {
     @objc private func emojiLabelTapped() {
         let emojiPicker = EmojiPickerVC.instantiate()
         emojiPicker.delegate = self
-        displayEmojiPicker(popController: emojiPicker, dismiss: true, sizes: [.fixed(280)])
-    }
-    
-    func displayEmojiPicker(popController: UIViewController, dismiss: Bool, sizes: [SheetSize]) {
-        let sheetVC = SheetViewController(controller: popController, sizes: sizes)
-        sheetVC.hasBlurBackground = true
-        sheetVC.dismissOnOverlayTap = dismiss
-        sheetVC.treatPullBarAsClear = true
+        let sheetSizes: [SheetSize] = [.percent(0.4), .percent(0.95)]
+        let sheetVC = SheetViewController(controller: emojiPicker, sizes: sheetSizes)
         present(sheetVC, animated: true)
     }
 }
