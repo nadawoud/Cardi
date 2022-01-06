@@ -156,7 +156,6 @@
 				6154099F265E78E800ABB8FB /* CardFrontView.xib */,
 				615409A0265E78E800ABB8FB /* CardFrontView.swift */,
 				615409A1265E78E800ABB8FB /* CardBackView.swift */,
-				616FD61B2757DEBF00926E4D /* EmojiPickerVC.swift */,
 				616FD6212757E91300926E4D /* EmojiCell.swift */,
 				61E2F5BA277D85D20088D7CF /* EmojiSectionHeaderView.swift */,
 			);
@@ -203,6 +202,7 @@
 				615DD69326654AB7009DD5A2 /* DeckListVC.swift */,
 				61B89682267A74FA00FCE386 /* NewDeckVC.swift */,
 				6152661426E9405A00EB9DBA /* NewCardVC.swift */,
+				616FD61B2757DEBF00926E4D /* EmojiPickerVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
