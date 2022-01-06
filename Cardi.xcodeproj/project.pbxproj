@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		613772CB26B88D2E00A0067B /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 613772CA26B88D2E00A0067B /* Defaults */; };
+		61402388278788B900C1A9BE /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = 61402387278788B900C1A9BE /* emoji.json */; };
 		6152661526E9405A00EB9DBA /* NewCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6152661426E9405A00EB9DBA /* NewCardVC.swift */; };
 		615409A2265E78E800ABB8FB /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6154099D265E78E800ABB8FB /* CardCell.swift */; };
 		615409A3265E78E800ABB8FB /* CardBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6154099E265E78E800ABB8FB /* CardBackView.xib */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61402387278788B900C1A9BE /* emoji.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji.json; sourceTree = "<group>"; };
 		6152661426E9405A00EB9DBA /* NewCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCardVC.swift; sourceTree = "<group>"; };
 		6154099D265E78E800ABB8FB /* CardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		6154099E265E78E800ABB8FB /* CardBackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardBackView.xib; sourceTree = "<group>"; };
@@ -133,6 +135,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61402386278788B900C1A9BE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				61402387278788B900C1A9BE /* emoji.json */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		6154099C265E78E800ABB8FB /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +268,7 @@
 		61E1318B260A93F500FAFC82 /* Cardi */ = {
 			isa = PBXGroup;
 			children = (
+				61402386278788B900C1A9BE /* Assets */,
 				61CEC789276A695800CF29AC /* Fonts */,
 				6186FE112688CE160036C2C5 /* Storyboards */,
 				61ABBD412665473C00A20F11 /* Screens */,
@@ -370,6 +381,7 @@
 				61CEC7A6276A69BE00CF29AC /* Nunito-ExtraLight.ttf in Resources */,
 				61CEC7B2276A69E000CF29AC /* BalooBhaijaan2-Bold.ttf in Resources */,
 				61CEC7A2276A69BE00CF29AC /* Nunito-SemiBold.ttf in Resources */,
+				61402388278788B900C1A9BE /* emoji.json in Resources */,
 				615409AE265E790000ABB8FB /* Assets.xcassets in Resources */,
 				61CEC7A0276A69BE00CF29AC /* Nunito-Light.ttf in Resources */,
 				6186FE132688CE510036C2C5 /* DeckVC.storyboard in Resources */,
