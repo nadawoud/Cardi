@@ -14,16 +14,28 @@ protocol EmojiPickerDelegate: AnyObject {
 
 
 class EmojiPickerVC: UIViewController, StoryboardBased {
-    
+    // MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var emojiCategories = [EmojiCategory]()
+    // MARK: - Properties
+    private var searchController = UISearchController(searchResultsController: nil)
+    private lazy var dataSource = createDataSource()
+    private var emojiCategories = [EmojiCategory]()
+    private var filteredEmojiCategories = [EmojiCategory]()
+    private var isSearching = false
+    
     weak var delegate: EmojiPickerDelegate?
+    
+    // MARK: - Value Types
+    typealias DataSource = UICollectionViewDiffableDataSource<EmojiCategory, Emoji>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<EmojiCategory, Emoji>
     
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let emojiCategories = getEmojisFromJSONFile(withName: "emoji") else { return }
         self.emojiCategories = emojiCategories
+        configureSearchController()
+        updateData(on: self.emojiCategories)
     }
     
     private func getEmojisFromJSONFile(withName fileName: String) -> [EmojiCategory]? {
@@ -37,36 +49,70 @@ class EmojiPickerVC: UIViewController, StoryboardBased {
         }
         return emojiCategories
     }
+    
+    func createDataSource() -> DataSource {
+        let dataSource = DataSource(
+            collectionView: collectionView,
+            cellProvider: { (collectionView, indexPath, emoji) -> UICollectionViewCell? in
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmojiCell.reuseID, for: indexPath) as? EmojiCell
+                cell?.emojiLabel.text = emoji.emoji
+                return cell
+            })
+        dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
+            guard kind == UICollectionView.elementKindSectionHeader else {
+                return nil
+            }
+            let section = self.dataSource.snapshot().sectionIdentifiers[indexPath.section]
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EmojiSectionHeaderView.reuseID, for: indexPath) as? EmojiSectionHeaderView
+            view?.headerLabel.text = section.title
+            return view
+        }
+        return dataSource
+    }
+    
+    func updateData(on emojiCategories: [EmojiCategory]) {
+        var snapshot = Snapshot()
+        snapshot.appendSections(emojiCategories)
+        for category in emojiCategories {
+            snapshot.appendItems(category.emojis, toSection: category)
+        }
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
 }
 
 
-extension EmojiPickerVC: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        emojiCategories.count
+extension EmojiPickerVC:  UISearchResultsUpdating, UISearchBarDelegate {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchPhrase = searchController.searchBar.text, !searchPhrase.isEmpty else { return }
+        isSearching = true
+        
+        filteredEmojiCategories = emojiCategories.filter { category in
+            var matches = category.title.lowercased().contains(searchPhrase.lowercased())
+            for emoji in category.emojis {
+                if emoji.keywords.contains(searchPhrase.lowercased()) {
+                matches = true
+                break
+              }
+            }
+            return matches
+          }
+        updateData(on: filteredEmojiCategories)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let category = emojiCategories[section]
-        let emojis = category.emojis
-        
-        return emojis.count
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        updateData(on: emojiCategories)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let emojiCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmojiCell", for: indexPath) as! EmojiCell
-        let category = emojiCategories[indexPath.section]
-        let emoji = category.emojis[indexPath.item]
-        
-        emojiCell.emojiLabel.text = emoji.emoji
-        
-        return emojiCell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let emojiHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: EmojiSectionHeaderView.reuseID, for: indexPath) as! EmojiSectionHeaderView
-        let category = emojiCategories[indexPath.section]
-        emojiHeaderView.headerLabel.text = category.title
-        return emojiHeaderView
+    func configureSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Search emojis"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationController?.navigationBar.isHidden = false
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        definesPresentationContext = true
     }
 }
 
@@ -93,8 +139,9 @@ extension EmojiPickerVC: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let emoji = emojiCategories[indexPath.section].emojis[indexPath.item].emoji
-        delegate?.didPickEmoji(emoji)
+        let activeArray = isSearching ? filteredEmojiCategories : emojiCategories
+        let emoji = activeArray[indexPath.section].emojis[indexPath.item]
+        delegate?.didPickEmoji(emoji.emoji)
         dismiss(animated: true)
     }
 }

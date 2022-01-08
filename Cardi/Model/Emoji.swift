@@ -7,13 +7,17 @@
 
 import Foundation
 
-struct EmojiCategory: Codable {
+struct EmojiCategory: Codable, Hashable {
     let title: String
     let emojis: [Emoji]
+    
+    static func == (lhs: EmojiCategory, rhs: EmojiCategory) -> Bool {
+        return lhs.title == rhs.title
+    }
 }
 
 
-struct Emoji: Codable {
+struct Emoji: Codable, Hashable {
     let no: Int
     let code, emoji, emojiDescription: String
     let flagged: Bool
@@ -23,5 +27,9 @@ struct Emoji: Codable {
         case no, code, emoji
         case emojiDescription = "description"
         case flagged, keywords
+    }
+    
+    static func == (lhs: Emoji, rhs: Emoji) -> Bool {
+        return lhs.emoji == rhs.emoji
     }
 }
