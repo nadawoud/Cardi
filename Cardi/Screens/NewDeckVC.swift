@@ -9,22 +9,29 @@ import UIKit
 import Reusable
 import Defaults
 import Combine
+import FittedSheets
 
 class NewDeckVC: UIViewController, StoryboardBased {
     
-    let viewModel = NewDeckViewModel()
+    var viewModel = NewDeckViewModel()
     private var subscriptions = Set<AnyCancellable>()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var deckTitleTextField: UITextField!
-    @IBOutlet weak var emojiTextField: UITextField!
+    @IBOutlet weak var emojiLabel: UILabel! {
+        didSet {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(emojiLabelTapped))
+            emojiLabel.addGestureRecognizer(tap)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDeck()
         configureNavigation()
         configureLayout()
         
-        viewModel.$cards.sink { [weak self] _ in
+        viewModel.$deck.sink { [weak self] _ in
             self?.collectionView.reloadData()
         }.store(in: &subscriptions)
     }
@@ -33,8 +40,13 @@ class NewDeckVC: UIViewController, StoryboardBased {
         collectionView.reloadData()
     }
     
+    private func setupDeck() {
+        emojiLabel.text = viewModel.deck?.coverEmoji ?? "😀"
+        deckTitleTextField.text = viewModel.deck?.title
+    }
+    
     private func configureNavigation() {
-        navigationItem.title = "Create Deck"
+        navigationItem.title = viewModel.deck == nil ? "Create Card" : "Edit Card"
         navigationController?.navigationBar.prefersLargeTitles = false
         let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeButtonTapped))
         navigationItem.leftBarButtonItem = closeButton
@@ -64,12 +76,26 @@ class NewDeckVC: UIViewController, StoryboardBased {
     
     @IBAction func doneButtonTapped() {
         let title = deckTitleTextField.text ?? "Test Deck"
-        viewModel.saveDeck(title: title)
+        let emoji = emojiLabel.text
+        if let deck = viewModel.deck {
+            deck.title = title
+            deck.coverEmoji = emoji
+        } else {
+            viewModel.saveDeck(title: title, coverEmoji: emoji)
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc func closeButtonTapped() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func emojiLabelTapped() {
+        let emojiPicker = EmojiPickerVC.instantiate()
+        emojiPicker.delegate = self
+        let sheetSizes: [SheetSize] = [.percent(0.4), .percent(0.95)]
+        let sheetVC = SheetViewController(controller: emojiPicker, sizes: sheetSizes)
+        present(sheetVC, animated: true)
     }
 }
 
@@ -95,18 +121,18 @@ extension NewDeckVC: AddCardCellDelegate {
 
 extension NewDeckVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.cards.count + 1
+        let count = viewModel.deck?.cards.count ?? 0
+        return count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == viewModel.cards.count {
+        if indexPath.row == viewModel.deck?.cards.count {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AddCardCell.self)
             cell.delegate = self
-            
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: NewCardCell.self)
-            cell.setup(card: viewModel.cards[indexPath.item])
+            cell.setup(card: viewModel.deck?.cards[indexPath.item] ?? Card(title: ""))
             return cell
         }
     }
@@ -115,8 +141,14 @@ extension NewDeckVC: UICollectionViewDelegate, UICollectionViewDataSource {
         //TODO: Open EditCardVC
         let destination = NewCardVC.instantiate()
         destination.delegate = self
-        destination.card = viewModel.cards[indexPath.item]
+        destination.card = viewModel.deck?.cards[indexPath.item]
         self.navigationController?.pushViewController(destination, animated: true)
     }
-    
+}
+
+
+extension NewDeckVC: EmojiPickerDelegate {
+    func didPickEmoji(_ emoji: String) {
+        emojiLabel.text = emoji
+    }
 }

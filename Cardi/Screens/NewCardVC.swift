@@ -43,6 +43,7 @@ class NewCardVC: UIViewController, StoryboardBased {
     }
     
     private func configure() {
+        emojiLabel.text = card?.emoji ?? "😀"
         cardTitleTextField.text = card?.title
         cardBackTitleTextField.text = card?.backTitle
         cardDescriptionTextField.text = card?.description
@@ -50,18 +51,25 @@ class NewCardVC: UIViewController, StoryboardBased {
     }
     
     @IBAction func doneButtonTapped() {
+        let title = cardTitleTextField.text ?? "Test Card"
+        let backTitle = cardBackTitleTextField.text
+        let description = cardDescriptionTextField.text
+        let backDescription = cardBackDescriptionTextField.text
+        let emoji = emojiLabel.text
+        
         if let card = card {
-            card.title = cardTitleTextField.text ?? "Test Card"
-            card.backTitle = cardBackTitleTextField.text
-            card.description = cardDescriptionTextField.text
-            card.backDescription = cardBackDescriptionTextField.text
+            card.title = title
+            card.backTitle = backTitle
+            card.description = description
+            card.backDescription = backDescription
+            card.emoji = emoji
             delegate?.cardEdited(card: card)
         } else {
-            let card = Card(title: cardTitleTextField.text ?? "Test Card",
-                            description: cardDescriptionTextField.text,
-                            backTitle: cardBackTitleTextField.text,
-                            backDescription: cardBackDescriptionTextField.text,
-                            emoji: "🍋")
+            let card = Card(title: title,
+                            description: description,
+                            backTitle: backTitle,
+                            backDescription: backDescription,
+                            emoji: emoji)
             
             delegate?.cardCreated(card: card)
         }

@@ -11,18 +11,27 @@ import Combine
 
 class NewDeckViewModel {
     
-    @Published var cards = [Card]()
+    @Published var deck: CardDeck?
     
-    func addCard(_ card: Card) {
-        cards.append(card)
+    init(deck: CardDeck? = nil) {
+        self.deck = deck
     }
     
-    func saveDeck(title: String) {
-        let deck = CardDeck(title: title,
-                            cards: cards,
-                            coverEmoji: "🍕")
+    func addCard(_ card: Card) {
+        if deck == nil {
+            deck = CardDeck(title: "", cards: [Card](), coverEmoji: "😀")
+        }
+        deck!.cards.append(card)
+    }
+    
+    func saveDeck(title: String, coverEmoji: String?) {
+        if deck == nil {
+            deck = CardDeck(title: title, cards: [Card](), coverEmoji: coverEmoji)
+        }
+        deck!.title = title
+        deck!.coverEmoji = coverEmoji
         var deckList = Defaults[.decksList]
-        deckList.append(deck)
+        deckList.append(deck!)
         Defaults[.decksList] = deckList
     }
 }

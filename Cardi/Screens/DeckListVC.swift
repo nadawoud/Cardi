@@ -20,7 +20,7 @@ class DeckListVC: UIViewController {
         super.viewDidLoad()
         configureLayout()
         setupBindings()
-        
+        setupNavigationBarButtons()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +49,11 @@ class DeckListVC: UIViewController {
         }()
     }
     
+    private func setupNavigationBarButtons() {
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewDeck))
+        navigationItem.rightBarButtonItems = [addButton, editButtonItem]
+    }
+    
     @IBAction func addNewDeck(_ sender: UIBarButtonItem) {
         let destination = NewDeckVC.instantiate()
         self.navigationController?.pushViewController(destination, animated: true)
@@ -72,10 +77,16 @@ extension DeckListVC: UICollectionViewDataSource {
 extension DeckListVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let deck = viewModel.decks[indexPath.item]
-        let destination = DeckVC.instantiate()
-        destination.viewModel = DeckViewModel(deck: deck)
-        let navController = UINavigationController(rootViewController: destination)
-        navController.modalPresentationStyle = .fullScreen
-        self.present(navController, animated: true)
+        if isEditing {
+            let destination = NewDeckVC.instantiate()
+            destination.viewModel = NewDeckViewModel(deck: deck)
+            self.navigationController?.pushViewController(destination, animated: true)
+        } else {
+            let destination = DeckVC.instantiate()
+            destination.viewModel = DeckViewModel(deck: deck)
+            let navController = UINavigationController(rootViewController: destination)
+            navController.modalPresentationStyle = .fullScreen
+            self.present(navController, animated: true)
+        }
     }
 }

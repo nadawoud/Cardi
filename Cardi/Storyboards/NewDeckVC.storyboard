@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gW8-Dr-V6J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gW8-Dr-V6J">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,25 +20,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xNY-oR-gTs">
-                                <rect key="frame" x="20" y="210" width="374" height="476"/>
+                                <rect key="frame" x="20" y="200" width="374" height="496"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Bp-hW-Wp1">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🍕" textAlignment="center" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1gh-sI-3T8">
-                                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="7GE-AF-h2p"/>
-                                                    <constraint firstAttribute="height" constant="80" id="tYb-Dx-F8Y"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="70"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="F3M-on-9Ip">
-                                                <rect key="frame" x="100" y="23" width="274" height="34"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="F3M-on-9Ip">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                                                 <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tok-tj-yuM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                        <subviews>
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🥞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0KZ-8t-lD5">
+                                                                <rect key="frame" x="23" y="20" width="54" height="60"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="0KZ-8t-lD5" firstAttribute="centerX" secondItem="Tok-tj-yuM" secondAttribute="centerX" id="H0s-0D-1gI"/>
+                                                            <constraint firstAttribute="height" constant="100" id="NZv-Qy-bc4"/>
+                                                            <constraint firstAttribute="width" constant="100" id="dwP-t2-E8Y"/>
+                                                            <constraint firstItem="0KZ-8t-lD5" firstAttribute="centerY" secondItem="Tok-tj-yuM" secondAttribute="centerY" id="vxu-Pk-UVh"/>
+                                                        </constraints>
+                                                    </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="anO-Vt-ua2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="274" height="34"/>
+                                                        <rect key="frame" x="110" y="0.0" width="264" height="100"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -47,7 +56,7 @@
                                         </subviews>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t5K-Fv-Pnz">
-                                        <rect key="frame" x="0.0" y="110" width="374" height="300"/>
+                                        <rect key="frame" x="0.0" y="130" width="374" height="300"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="300" id="aoi-Ca-6Yi"/>
@@ -60,7 +69,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="NewCardCell" id="TQ2-uR-E3x" customClass="NewCardCell" customModule="Cardi" customModuleProvider="target">
-                                                <rect key="frame" x="76.5" y="0.0" width="221" height="297"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GnU-xv-FFr">
                                                     <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
@@ -84,14 +93,14 @@
                                                 </connections>
                                             </collectionViewCell>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="AddCardCell" id="wcj-1g-cUJ" customClass="AddCardCell" customModule="Cardi" customModuleProvider="target">
-                                                <rect key="frame" x="76.5" y="307" width="221" height="297"/>
+                                                <rect key="frame" x="231" y="124" width="67.5" height="49.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ltK-Hh-d9j">
-                                                    <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="67.5" height="49.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="os7-5g-Gai">
-                                                            <rect key="frame" x="0.0" y="0.0" width="221" height="297"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="67.5" height="49.5"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain">
                                                                 <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
@@ -121,7 +130,7 @@
                                         </connections>
                                     </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDV-eF-X2x">
-                                        <rect key="frame" x="0.0" y="440" width="374" height="36"/>
+                                        <rect key="frame" x="0.0" y="460" width="374" height="36"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <state key="normal" title="Done">
@@ -147,7 +156,7 @@
                     <connections>
                         <outlet property="collectionView" destination="t5K-Fv-Pnz" id="Gw1-Y7-1SW"/>
                         <outlet property="deckTitleTextField" destination="anO-Vt-ua2" id="Fdm-Aa-160"/>
-                        <outlet property="emojiTextField" destination="1gh-sI-3T8" id="jzF-nY-c1V"/>
+                        <outlet property="emojiLabel" destination="0KZ-8t-lD5" id="Sp1-XQ-z8b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fgc-Sp-rlG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
