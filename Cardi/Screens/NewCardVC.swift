@@ -37,7 +37,7 @@ class NewCardVC: UIViewController, StoryboardBased {
     }
     
     private func configureNavigation() {
-        navigationItem.title = card == nil ? "Create Card" : "Edit Card"
+        navigationItem.title = card == nil ? "Add New Card" : card?.title
         let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeButtonTapped))
         navigationItem.leftBarButtonItem = closeButton
     }

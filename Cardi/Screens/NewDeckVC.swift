@@ -46,7 +46,7 @@ class NewDeckVC: UIViewController, StoryboardBased {
     }
     
     private func configureNavigation() {
-        navigationItem.title = viewModel.deck == nil ? "Create Card" : "Edit Card"
+        navigationItem.title = viewModel.deck.title.isEmpty ? "Create New Deck" : viewModel.deck.title
         navigationController?.navigationBar.prefersLargeTitles = false
         let closeButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeButtonTapped))
         navigationItem.leftBarButtonItem = closeButton
