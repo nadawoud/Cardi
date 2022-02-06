@@ -11,18 +11,25 @@ import Combine
 
 class NewDeckViewModel {
     
-    @Published var cards = [Card]()
+    @Published var deck: CardDeck
     
-    func addCard(_ card: Card) {
-        cards.append(card)
+    init(deck: CardDeck) {
+        self.deck = deck
     }
     
-    func saveDeck(title: String) {
-        let deck = CardDeck(title: title,
-                            cards: cards,
-                            coverEmoji: "🍕")
+    func addCard(_ card: Card) {
+        deck.cards.append(card)
+    }
+    
+    func saveDeck() {
         var deckList = Defaults[.decksList]
-        deckList.append(deck)
+        
+        if let storedDeckIndex = deckList.firstIndex(where: { $0.id == deck.id }) {
+            deckList[storedDeckIndex] = deck
+        } else {
+            deckList.append(deck)
+        }
+        
         Defaults[.decksList] = deckList
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mai-Fo-teI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Mai-Fo-teI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -88,13 +88,7 @@
                             <constraint firstItem="5Dc-3L-DEM" firstAttribute="bottom" secondItem="UA1-qo-SVT" secondAttribute="bottom" constant="10" id="ilx-55-QKH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="HSl-47-xEi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3x4-fm-ehg">
-                            <connections>
-                                <action selector="addNewDeck:" destination="78W-G6-uT2" id="dkq-R8-nre"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Home" id="HSl-47-xEi"/>
                     <connections>
                         <outlet property="collectionView" destination="UA1-qo-SVT" id="tr1-sP-W7s"/>
                     </connections>
