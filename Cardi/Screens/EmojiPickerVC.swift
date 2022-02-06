@@ -21,7 +21,6 @@ class EmojiPickerVC: UIViewController, StoryboardBased {
     private var searchController = UISearchController(searchResultsController: nil)
     private lazy var dataSource = createDataSource()
     private var emojiCategories = [EmojiCategory]()
-    private var filteredEmojiCategories = [EmojiCategory]()
     private var isSearching = false
     
     weak var delegate: EmojiPickerDelegate?
@@ -32,6 +31,7 @@ class EmojiPickerVC: UIViewController, StoryboardBased {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
         guard let emojiCategories = getEmojisFromJSONFile(withName: "emoji") else { return }
         self.emojiCategories = emojiCategories
         configureSearchController()
@@ -86,17 +86,14 @@ extension EmojiPickerVC:  UISearchResultsUpdating, UISearchBarDelegate {
         guard let searchPhrase = searchController.searchBar.text, !searchPhrase.isEmpty else { return }
         isSearching = true
         
-        filteredEmojiCategories = emojiCategories.filter { category in
-            var matches = category.title.lowercased().contains(searchPhrase.lowercased())
-            for emoji in category.emojis {
-                if emoji.keywords.contains(searchPhrase.lowercased()) {
-                matches = true
-                break
-              }
+        let results = emojiCategories
+            .flatMap { $0.emojis }
+            .filter {
+                return $0.keywords.contains(searchPhrase.lowercased())
             }
-            return matches
-          }
-        updateData(on: filteredEmojiCategories)
+        
+        let resultsCategory = EmojiCategory(title: "Results", emojis: results)
+        updateData(on: [resultsCategory])
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -109,8 +106,9 @@ extension EmojiPickerVC:  UISearchResultsUpdating, UISearchBarDelegate {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search emojis"
         searchController.obscuresBackgroundDuringPresentation = false
-        navigationController?.navigationBar.isHidden = false
-        navigationItem.searchController = searchController
+        searchController.hidesNavigationBarDuringPresentation = false
+        //navigationController?.navigationBar.isHidden = false
+        navigationItem.titleView = searchController.searchBar
         navigationItem.hidesSearchBarWhenScrolling = false
         definesPresentationContext = true
     }
@@ -139,9 +137,8 @@ extension EmojiPickerVC: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let activeArray = isSearching ? filteredEmojiCategories : emojiCategories
-        let emoji = activeArray[indexPath.section].emojis[indexPath.item]
+        guard let emoji = dataSource.itemIdentifier(for: indexPath) else { return }
         delegate?.didPickEmoji(emoji.emoji)
-        dismiss(animated: true)
+        //dismiss(animated: true)
     }
 }
