@@ -13,7 +13,7 @@ import FittedSheets
 
 class NewDeckVC: UIViewController, StoryboardBased {
     
-    var viewModel = NewDeckViewModel()
+    var viewModel: NewDeckViewModel!
     private var subscriptions = Set<AnyCancellable>()
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -41,8 +41,8 @@ class NewDeckVC: UIViewController, StoryboardBased {
     }
     
     private func setupDeck() {
-        emojiLabel.text = viewModel.deck?.coverEmoji ?? "😀"
-        deckTitleTextField.text = viewModel.deck?.title
+        emojiLabel.text = viewModel.deck.coverEmoji ?? "😀"
+        deckTitleTextField.text = viewModel.deck.title
     }
     
     private func configureNavigation() {
@@ -77,12 +77,11 @@ class NewDeckVC: UIViewController, StoryboardBased {
     @IBAction func doneButtonTapped() {
         let title = deckTitleTextField.text ?? "Test Deck"
         let emoji = emojiLabel.text
-        if let deck = viewModel.deck {
-            deck.title = title
-            deck.coverEmoji = emoji
-        } else {
-            viewModel.saveDeck(title: title, coverEmoji: emoji)
-        }
+       
+        viewModel.deck.title = title
+        viewModel.deck.coverEmoji = emoji
+        viewModel.saveDeck()
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -94,7 +93,7 @@ class NewDeckVC: UIViewController, StoryboardBased {
         let emojiPicker = EmojiPickerVC.instantiate()
         emojiPicker.delegate = self
         let sheetSizes: [SheetSize] = [.percent(0.4), .percent(0.95)]
-        let sheetVC = SheetViewController(controller: emojiPicker, sizes: sheetSizes)
+        let sheetVC = SheetViewController(controller: UINavigationController(rootViewController: emojiPicker), sizes: sheetSizes)
         present(sheetVC, animated: true)
     }
 }
@@ -121,18 +120,18 @@ extension NewDeckVC: AddCardCellDelegate {
 
 extension NewDeckVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = viewModel.deck?.cards.count ?? 0
+        let count = viewModel.deck.cards.count
         return count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == viewModel.deck?.cards.count {
+        if indexPath.row == viewModel.deck.cards.count {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: AddCardCell.self)
             cell.delegate = self
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: NewCardCell.self)
-            cell.setup(card: viewModel.deck?.cards[indexPath.item] ?? Card(title: ""))
+            cell.setup(card: viewModel.deck.cards[indexPath.item])
             return cell
         }
     }
@@ -141,7 +140,7 @@ extension NewDeckVC: UICollectionViewDelegate, UICollectionViewDataSource {
         //TODO: Open EditCardVC
         let destination = NewCardVC.instantiate()
         destination.delegate = self
-        destination.card = viewModel.deck?.cards[indexPath.item]
+        destination.card = viewModel.deck.cards[indexPath.item]
         self.navigationController?.pushViewController(destination, animated: true)
     }
 }
@@ -150,5 +149,6 @@ extension NewDeckVC: UICollectionViewDelegate, UICollectionViewDataSource {
 extension NewDeckVC: EmojiPickerDelegate {
     func didPickEmoji(_ emoji: String) {
         emojiLabel.text = emoji
+        presentedViewController?.dismiss(animated: true)
     }
 }

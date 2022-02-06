@@ -56,6 +56,7 @@ class DeckListVC: UIViewController {
     
     @IBAction func addNewDeck(_ sender: UIBarButtonItem) {
         let destination = NewDeckVC.instantiate()
+        destination.viewModel = .init(deck: .init())
         self.navigationController?.pushViewController(destination, animated: true)
     }
 }
