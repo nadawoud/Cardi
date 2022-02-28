@@ -15,10 +15,18 @@ class DeckCell: UICollectionViewCell, Reusable {
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var emojiLabel: UILabel!
     
+    @IBOutlet private var circleView: UIView!
+    
     var deck: CardDeck?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        circleView.makeCircle()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        circleView.makeCircle()
     }
     
     func setup(deck: CardDeck) {
