@@ -15,6 +15,9 @@ extension UIView {
         }
         set {
             layer.cornerRadius = newValue
+//            if cornerRadius > 0 {
+//                clipsToBounds = true
+//            }
         }
     }
     
@@ -42,6 +45,8 @@ extension UIView {
         }
         set {
             layer.shadowColor = newValue.cgColor
+//            layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: self.layer.cornerRadius).cgPath
+//            layer.masksToBounds = true
         }
     }
     
@@ -70,5 +75,12 @@ extension UIView {
         set {
             layer.shadowRadius = newValue
         }
+    }
+    
+    func makeCircle() {
+        print(frame.width)
+        print(bounds.width)
+        layer.cornerRadius = bounds.size.width / 2
+        clipsToBounds = true
     }
 }
